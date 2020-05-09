@@ -28,7 +28,7 @@ Bloom is completely open source, and has absolutely no DRM. You can freely share
 The storyline of Bloom is simple enough to not overwhelm the game itself, while still being creative enough to be intriguing.
 
 ### Lightweight
-Bloom doesn't require high end hardware to run well. Even inexpensive computer should be able to run the game at a full 60 frames per second without issue.
+Bloom doesn't require high end hardware to run well. Even inexpensive computers should be able to run the game at a full 60 frames per second without issue.
 
 ## Screenshots
 There are currently no screenshots available
