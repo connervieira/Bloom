@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Textures/OliverEyes.png" type="Texture" id=1]
+[ext_resource path="res://Defaults/DefaultFont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=3]
+[ext_resource path="res://DirectionalBlur.shader" type="Shader" id=4]
+[ext_resource path="res://Scripts/Eyes.gd" type="Script" id=5]
+[ext_resource path="res://Tiles/Lava.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Defaults/default.png" type="Texture" id=7]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/ProceduralGeneration.gd" type="Script" id=9]
+[ext_resource path="res://Tiles/ProceduralWall.tscn" type="PackedScene" id=10]
+
+
+
+
+
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 27
+font_data = ExtResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 64, 64 )
+
+[node name="Procedural" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="Player" parent="." instance=ExtResource( 8 )]
+material = SubResource( 1 )
+position = Vector2( 128, 352 )
+
+[node name="Eyes" type="Node2D" parent="."]
+position = Vector2( 128, 352 )
+scale = Vector2( 0.062, 0.062 )
+z_index = 1
+script = ExtResource( 5 )
+
+[node name="EyesSprite" type="Sprite" parent="Eyes"]
+texture = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = 320.0
+margin_right = 64.0
+margin_bottom = 320.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RespawnPower" type="Label" parent="Control"]
+margin_top = -33.0
+margin_right = 90.0
+custom_fonts/font = SubResource( 2 )
+text = "Respawn Power: X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 512, 224 )
+current = true
+script = ExtResource( 3 )
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource( 10 )]
+
+[node name="Lava" type="Node" parent="."]
+
+[node name="Lava2" parent="Lava" instance=ExtResource( 6 )]
+position = Vector2( 224, 448 )
+
+[node name="Text" type="Node" parent="."]
+
+[node name="End" type="StaticBody2D" parent="." groups=[
+"Level2Finish",
+]]
+position = Vector2( 288, 448 )
+scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="End"]
+modulate = Color( 0, 1, 0.0627451, 1 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
+shape = SubResource( 3 )

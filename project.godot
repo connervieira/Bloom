@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Bloom"
+config/description="Oliver the Robot has lived in a metalic world his entire life. But then, one day, a bird flew overhead and dropped a brightly colored flowered right next to Oliver. He had never seen something so pretty! His metallic heart was set on finding more, and bringing color into his formerly grey life."
+run/main_scene="res://Scenes/MainMenu.tscn"
+config/icon="res://Images/icon.png"
+
+[autoload]
+
+UserData="*res://addons/github-integration/scripts/user_data.gd"
+IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
+[locale]
+
+locale_filter=[ 0, [  ] ]
+
+[rendering]
+
+environment/default_environment="res://Defaults/default_env.tres"
