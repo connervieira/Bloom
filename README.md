@@ -35,3 +35,15 @@ There are currently no screenshots available
 ![Screenshot 1](https://v0lttech.com/files/images/bloom/1.png)
 ![Screenshot 2](https://v0lttech.com/files/images/bloom/2.png)
 ![Screenshot 3](https://v0lttech.com/files/images/bloom/3.png)
+
+## Credits
+### Conner Vieira
+Job: Game Design, Software Development<br/>
+Social Media: Mastodon (@cvieira)
+
+### Kyrah Porter
+Job: Story Writing, Character Development<br/>
+Social Media: Instagram (@garbage._.cant)
+
+### Declan Evans
+Job: Art Style, Animations
