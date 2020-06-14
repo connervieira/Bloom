@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Defaults/DefaultFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=2]
@@ -8,9 +8,51 @@
 size = 20
 font_data = ExtResource( 1 )
 
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.313726, 0.313726, 0.313726, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+
 [sub_resource type="DynamicFont" id=2]
 size = 27
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 1, 0.6, 0.6, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 0.392157, 0.392157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 1, 0.738927, 0.603272, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 0.6, 0.392157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 1, 0.871948, 0.531697, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 1, 0.764706, 0.407843, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.709804, 1, 0.631373, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.435294, 0.772549, 0.364706, 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.668712, 1, 0.97153, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.352941, 0.854902, 0.811765, 1 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.676892, 0.701906, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.392157, 0.439216, 1, 1 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -63,7 +105,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -84.0
 margin_top = 226.0
-margin_right = 85.0
+margin_right = 106.0
 grow_horizontal = 2
 grow_vertical = 0
 scroll_horizontal_enabled = false
@@ -72,8 +114,9 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 157.0
-margin_bottom = 873.0
+margin_right = 180.0
+margin_bottom = 831.0
+rect_min_size = Vector2( 180, 0 )
 custom_constants/separation = 100
 alignment = 1
 __meta__ = {
@@ -81,8 +124,10 @@ __meta__ = {
 }
 
 [node name="Intro" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_right = 157.0
-margin_bottom = 39.0
+margin_right = 180.0
+margin_bottom = 33.0
+custom_styles/hover = SubResource( 10 )
+custom_styles/normal = SubResource( 3 )
 custom_fonts/font = SubResource( 2 )
 text = "Introduction"
 __meta__ = {
@@ -90,9 +135,11 @@ __meta__ = {
 }
 
 [node name="Level1" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 139.0
-margin_right = 157.0
-margin_bottom = 178.0
+margin_top = 133.0
+margin_right = 180.0
+margin_bottom = 166.0
+custom_styles/hover = SubResource( 11 )
+custom_styles/normal = SubResource( 4 )
 custom_fonts/font = SubResource( 2 )
 text = "Level 1"
 __meta__ = {
@@ -100,9 +147,11 @@ __meta__ = {
 }
 
 [node name="Level2" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 278.0
-margin_right = 157.0
-margin_bottom = 317.0
+margin_top = 266.0
+margin_right = 180.0
+margin_bottom = 299.0
+custom_styles/hover = SubResource( 12 )
+custom_styles/normal = SubResource( 5 )
 custom_fonts/font = SubResource( 2 )
 text = "Level 2"
 __meta__ = {
@@ -110,9 +159,11 @@ __meta__ = {
 }
 
 [node name="Level3" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 417.0
-margin_right = 157.0
-margin_bottom = 456.0
+margin_top = 399.0
+margin_right = 180.0
+margin_bottom = 432.0
+custom_styles/hover = SubResource( 13 )
+custom_styles/normal = SubResource( 6 )
 custom_fonts/font = SubResource( 2 )
 text = "Level 3"
 __meta__ = {
@@ -120,9 +171,11 @@ __meta__ = {
 }
 
 [node name="Level4" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 556.0
-margin_right = 157.0
-margin_bottom = 595.0
+margin_top = 532.0
+margin_right = 180.0
+margin_bottom = 565.0
+custom_styles/hover = SubResource( 14 )
+custom_styles/normal = SubResource( 7 )
 custom_fonts/font = SubResource( 2 )
 text = "Level 4"
 __meta__ = {
@@ -130,9 +183,11 @@ __meta__ = {
 }
 
 [node name="Level5" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 695.0
-margin_right = 157.0
-margin_bottom = 734.0
+margin_top = 665.0
+margin_right = 180.0
+margin_bottom = 698.0
+custom_styles/hover = SubResource( 15 )
+custom_styles/normal = SubResource( 8 )
 custom_fonts/font = SubResource( 2 )
 text = "Level 5"
 __meta__ = {
@@ -140,9 +195,11 @@ __meta__ = {
 }
 
 [node name="Level6" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 834.0
-margin_right = 157.0
-margin_bottom = 873.0
+margin_top = 798.0
+margin_right = 180.0
+margin_bottom = 831.0
+custom_styles/hover = SubResource( 16 )
+custom_styles/normal = SubResource( 9 )
 custom_fonts/font = SubResource( 2 )
 text = "Level 6"
 __meta__ = {
