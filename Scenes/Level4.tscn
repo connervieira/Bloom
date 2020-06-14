@@ -1,19 +1,15 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Textures/OliverEyes.png" type="Texture" id=1]
 [ext_resource path="res://Defaults/DefaultFont.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=3]
+[ext_resource path="res://Prefabs/ParallaxBackground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Eyes.gd" type="Script" id=5]
 [ext_resource path="res://Tiles/Lava.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Defaults/default.png" type="Texture" id=7]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=8]
 
-
-
-
-
-
-[sub_resource type="Shader" id=4]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
@@ -40,22 +36,24 @@ void fragment(){
 	COLOR=dirBlur(TEXTURE, UV, blur_vector);
 }"
 
-[sub_resource type="ShaderMaterial" id=1]
-shader = SubResource( 4 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/angle_degrees = null
 shader_param/strength = null
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 27
 font_data = ExtResource( 2 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 64, 64 )
 
 [node name="World4" type="Node2D"]
 
+[node name="Parallax" parent="." instance=ExtResource( 4 )]
+
 [node name="Player" parent="." instance=ExtResource( 8 )]
-material = SubResource( 1 )
+material = SubResource( 2 )
 position = Vector2( 128, 352 )
 
 [node name="Eyes" type="Node2D" parent="."]
@@ -83,7 +81,7 @@ margin_left = -9.0
 margin_top = -32.0
 margin_right = 201.0
 margin_bottom = 1.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Respawn Power: X"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -108,7 +106,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall4" type="StaticBody2D" parent="Walls"]
 position = Vector2( 224, 448 )
@@ -122,7 +120,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall8" type="StaticBody2D" parent="Walls"]
 position = Vector2( 288, 448 )
@@ -136,7 +134,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall8"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall12" type="StaticBody2D" parent="Walls"]
 position = Vector2( 288, 192 )
@@ -150,7 +148,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall12"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall13" type="StaticBody2D" parent="Walls"]
 position = Vector2( 352, 192 )
@@ -164,7 +162,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall13"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall14" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, 192 )
@@ -178,7 +176,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall14"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall23" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, 128 )
@@ -192,7 +190,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall23"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall24" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, 64 )
@@ -206,7 +204,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall24"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall25" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, 0 )
@@ -220,7 +218,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall25"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall26" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, -64 )
@@ -234,7 +232,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall26"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall30" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, -128 )
@@ -248,7 +246,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall30"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall29" type="StaticBody2D" parent="Walls"]
 position = Vector2( 480, -192 )
@@ -262,7 +260,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall29"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall36" type="StaticBody2D" parent="Walls"]
 position = Vector2( 480, -320 )
@@ -276,7 +274,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall36"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall33" type="StaticBody2D" parent="Walls"]
 position = Vector2( 480, -384 )
@@ -290,7 +288,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall33"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall32" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, -384 )
@@ -304,7 +302,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall32"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall31" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, -448 )
@@ -318,7 +316,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall31"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall62" type="StaticBody2D" parent="Walls"]
 position = Vector2( 288, -576 )
@@ -332,7 +330,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall62"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall28" type="StaticBody2D" parent="Walls"]
 position = Vector2( 480, -128 )
@@ -346,7 +344,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall28"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall27" type="StaticBody2D" parent="Walls"]
 position = Vector2( 224, -64 )
@@ -360,7 +358,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall27"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall5" type="StaticBody2D" parent="Walls"]
 position = Vector2( 352, 448 )
@@ -374,7 +372,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall5"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall6" type="StaticBody2D" parent="Walls"]
 position = Vector2( 352, 384 )
@@ -388,7 +386,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall6"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall7" type="StaticBody2D" parent="Walls"]
 position = Vector2( 352, 320 )
@@ -402,7 +400,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall7"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall2" type="StaticBody2D" parent="Walls"]
 position = Vector2( 96, 448 )
@@ -416,7 +414,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall3" type="StaticBody2D" parent="Walls"]
 position = Vector2( 32, 448 )
@@ -430,7 +428,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall9" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, 384 )
@@ -444,7 +442,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall9"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall19" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, 448 )
@@ -458,7 +456,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall19"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall10" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, 320 )
@@ -472,7 +470,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall10"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall11" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, 256 )
@@ -486,7 +484,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall11"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall15" type="StaticBody2D" parent="Walls"]
 position = Vector2( 32, 64 )
@@ -500,7 +498,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall15"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall18" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, 64 )
@@ -514,7 +512,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall18"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall17" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, 0 )
@@ -528,7 +526,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall17"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall20" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, -64 )
@@ -542,7 +540,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall20"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall22" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, -192 )
@@ -556,7 +554,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall22"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall21" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, -256 )
@@ -570,7 +568,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall21"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall34" type="StaticBody2D" parent="Walls"]
 position = Vector2( -480, -256 )
@@ -584,7 +582,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall34"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall75" type="StaticBody2D" parent="Walls"]
 position = Vector2( -544, -256 )
@@ -598,7 +596,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall75"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall48" type="StaticBody2D" parent="Walls"]
 position = Vector2( -224, -256 )
@@ -612,7 +610,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall48"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall55" type="StaticBody2D" parent="Walls"]
 position = Vector2( -224, -192 )
@@ -626,7 +624,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall55"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall35" type="StaticBody2D" parent="Walls"]
 position = Vector2( -160, -384 )
@@ -640,7 +638,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall35"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall49" type="StaticBody2D" parent="Walls"]
 position = Vector2( -224, -384 )
@@ -654,7 +652,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall49"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall50" type="StaticBody2D" parent="Walls"]
 position = Vector2( -288, -384 )
@@ -668,7 +666,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall50"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall51" type="StaticBody2D" parent="Walls"]
 position = Vector2( -352, -384 )
@@ -682,7 +680,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall51"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall52" type="StaticBody2D" parent="Walls"]
 position = Vector2( -352, -256 )
@@ -696,7 +694,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall52"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall53" type="StaticBody2D" parent="Walls"]
 position = Vector2( -288, -256 )
@@ -710,7 +708,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall53"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall54" type="StaticBody2D" parent="Walls"]
 position = Vector2( -416, -256 )
@@ -724,7 +722,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall54"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall56" type="StaticBody2D" parent="Walls"]
 position = Vector2( -608, -256 )
@@ -738,7 +736,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall56"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall58" type="StaticBody2D" parent="Walls"]
 position = Vector2( -608, -384 )
@@ -752,7 +750,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall58"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall59" type="StaticBody2D" parent="Walls"]
 position = Vector2( -608, -448 )
@@ -766,7 +764,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall59"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall60" type="StaticBody2D" parent="Walls"]
 position = Vector2( -608, -512 )
@@ -780,7 +778,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall60"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall61" type="StaticBody2D" parent="Walls"]
 position = Vector2( -608, -576 )
@@ -794,7 +792,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall61"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall63" type="StaticBody2D" parent="Walls"]
 position = Vector2( -544, -576 )
@@ -808,7 +806,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall63"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall64" type="StaticBody2D" parent="Walls"]
 position = Vector2( -416, -576 )
@@ -822,7 +820,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall64"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall76" type="StaticBody2D" parent="Walls"]
 position = Vector2( -480, -576 )
@@ -836,7 +834,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall76"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall65" type="StaticBody2D" parent="Walls"]
 position = Vector2( -352, -576 )
@@ -850,7 +848,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall65"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall66" type="StaticBody2D" parent="Walls"]
 position = Vector2( -288, -576 )
@@ -864,7 +862,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall66"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall67" type="StaticBody2D" parent="Walls"]
 position = Vector2( -224, -576 )
@@ -878,7 +876,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall67"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall68" type="StaticBody2D" parent="Walls"]
 position = Vector2( -224, -640 )
@@ -892,7 +890,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall68"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall69" type="StaticBody2D" parent="Walls"]
 position = Vector2( -160, -640 )
@@ -906,7 +904,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall69"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall70" type="StaticBody2D" parent="Walls"]
 position = Vector2( -160, -704 )
@@ -920,7 +918,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall70"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall71" type="StaticBody2D" parent="Walls"]
 position = Vector2( -96, -704 )
@@ -934,7 +932,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall71"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall72" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, -704 )
@@ -948,7 +946,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall72"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall73" type="StaticBody2D" parent="Walls"]
 position = Vector2( 32, -704 )
@@ -962,7 +960,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall73"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall74" type="StaticBody2D" parent="Walls"]
 position = Vector2( 96, -704 )
@@ -976,7 +974,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall74"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall78" type="StaticBody2D" parent="Walls"]
 position = Vector2( 160, -768 )
@@ -990,7 +988,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall78"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall79" type="StaticBody2D" parent="Walls"]
 position = Vector2( 352, -640 )
@@ -1004,7 +1002,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall79"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall80" type="StaticBody2D" parent="Walls"]
 position = Vector2( 352, -704 )
@@ -1018,7 +1016,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall80"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall81" type="StaticBody2D" parent="Walls"]
 position = Vector2( 352, -768 )
@@ -1032,7 +1030,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall81"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall82" type="StaticBody2D" parent="Walls"]
 position = Vector2( 352, -832 )
@@ -1046,7 +1044,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall82"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall83" type="StaticBody2D" parent="Walls"]
 position = Vector2( 352, -896 )
@@ -1060,7 +1058,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall83"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall84" type="StaticBody2D" parent="Walls"]
 position = Vector2( 96, -768 )
@@ -1074,7 +1072,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall84"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall85" type="StaticBody2D" parent="Walls"]
 position = Vector2( 96, -832 )
@@ -1088,7 +1086,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall85"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall86" type="StaticBody2D" parent="Walls"]
 position = Vector2( 96, -896 )
@@ -1102,7 +1100,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall86"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall87" type="StaticBody2D" parent="Walls"]
 position = Vector2( 96, -960 )
@@ -1116,7 +1114,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall87"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall88" type="StaticBody2D" parent="Walls"]
 position = Vector2( 96, -1024 )
@@ -1130,7 +1128,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall88"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall106" type="StaticBody2D" parent="Walls"]
 position = Vector2( 352, -1408 )
@@ -1144,7 +1142,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall106"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall89" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, -896 )
@@ -1158,7 +1156,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall89"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall90" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, -960 )
@@ -1172,7 +1170,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall90"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall91" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, -1024 )
@@ -1186,7 +1184,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall91"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall92" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, -1088 )
@@ -1200,7 +1198,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall92"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall93" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, -1152 )
@@ -1214,7 +1212,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall93"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall100" type="StaticBody2D" parent="Walls"]
 position = Vector2( 480, -1152 )
@@ -1228,7 +1226,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall100"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall117" type="StaticBody2D" parent="Walls"]
 position = Vector2( 544, -1152 )
@@ -1242,7 +1240,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall117"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall101" type="StaticBody2D" parent="Walls"]
 position = Vector2( 544, -1216 )
@@ -1256,7 +1254,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall101"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall102" type="StaticBody2D" parent="Walls"]
 position = Vector2( 544, -1280 )
@@ -1270,7 +1268,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall102"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall103" type="StaticBody2D" parent="Walls"]
 position = Vector2( 544, -1344 )
@@ -1284,7 +1282,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall103"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall104" type="StaticBody2D" parent="Walls"]
 position = Vector2( 544, -1408 )
@@ -1298,7 +1296,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall104"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall107" type="StaticBody2D" parent="Walls"]
 position = Vector2( 544, -1472 )
@@ -1312,7 +1310,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall107"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall108" type="StaticBody2D" parent="Walls"]
 position = Vector2( 544, -1536 )
@@ -1326,7 +1324,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall108"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall109" type="StaticBody2D" parent="Walls"]
 position = Vector2( 544, -1600 )
@@ -1340,7 +1338,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall109"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall94" type="StaticBody2D" parent="Walls"]
 position = Vector2( 32, -1024 )
@@ -1354,7 +1352,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall94"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall95" type="StaticBody2D" parent="Walls"]
 position = Vector2( 32, -1088 )
@@ -1368,7 +1366,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall95"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall96" type="StaticBody2D" parent="Walls"]
 position = Vector2( 32, -1152 )
@@ -1382,7 +1380,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall96"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall97" type="StaticBody2D" parent="Walls"]
 position = Vector2( 32, -1216 )
@@ -1396,7 +1394,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall97"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall98" type="StaticBody2D" parent="Walls"]
 position = Vector2( 32, -1280 )
@@ -1410,7 +1408,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall98"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall99" type="StaticBody2D" parent="Walls"]
 position = Vector2( 32, -1280 )
@@ -1424,7 +1422,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall99"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall105" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, -1280 )
@@ -1438,7 +1436,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall105"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall110" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, -1344 )
@@ -1452,7 +1450,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall110"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall111" type="StaticBody2D" parent="Walls"]
 position = Vector2( -96, -1408 )
@@ -1466,7 +1464,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall111"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall112" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, -1408 )
@@ -1480,7 +1478,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall112"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall114" type="StaticBody2D" parent="Walls"]
 position = Vector2( -96, -1472 )
@@ -1494,7 +1492,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall114"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall128" type="StaticBody2D" parent="Walls"]
 position = Vector2( -96, -1536 )
@@ -1508,7 +1506,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall128"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall115" type="StaticBody2D" parent="Walls"]
 position = Vector2( -160, -1536 )
@@ -1522,7 +1520,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall115"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall116" type="StaticBody2D" parent="Walls"]
 position = Vector2( -160, -1600 )
@@ -1536,7 +1534,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall116"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall118" type="StaticBody2D" parent="Walls"]
 position = Vector2( -160, -1664 )
@@ -1550,7 +1548,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall118"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall137" type="StaticBody2D" parent="Walls"]
 position = Vector2( -224, -1664 )
@@ -1564,7 +1562,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall137"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall138" type="StaticBody2D" parent="Walls"]
 position = Vector2( -224, -1728 )
@@ -1578,7 +1576,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall138"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall119" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, -1792 )
@@ -1592,7 +1590,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall119"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall120" type="StaticBody2D" parent="Walls"]
 position = Vector2( 32, -1792 )
@@ -1606,7 +1604,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall120"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall121" type="StaticBody2D" parent="Walls"]
 position = Vector2( 96, -1792 )
@@ -1620,7 +1618,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall121"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall122" type="StaticBody2D" parent="Walls"]
 position = Vector2( 160, -1792 )
@@ -1634,7 +1632,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall122"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall123" type="StaticBody2D" parent="Walls"]
 position = Vector2( 224, -1792 )
@@ -1648,7 +1646,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall123"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall139" type="StaticBody2D" parent="Walls"]
 position = Vector2( 288, -1792 )
@@ -1662,7 +1660,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall139"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall140" type="StaticBody2D" parent="Walls"]
 position = Vector2( 288, -1920 )
@@ -1676,7 +1674,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall140"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall124" type="StaticBody2D" parent="Walls"]
 position = Vector2( 352, -1920 )
@@ -1690,7 +1688,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall124"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall134" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, -1920 )
@@ -1704,7 +1702,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall134"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall142" type="StaticBody2D" parent="Walls"]
 position = Vector2( 480, -1856 )
@@ -1718,7 +1716,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall142"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall141" type="StaticBody2D" parent="Walls"]
 position = Vector2( 544, -1856 )
@@ -1732,7 +1730,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall141"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall143" type="StaticBody2D" parent="Walls"]
 position = Vector2( 544, -1792 )
@@ -1746,7 +1744,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall143"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall144" type="StaticBody2D" parent="Walls"]
 position = Vector2( 608, -1792 )
@@ -1760,7 +1758,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall144"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall168" type="StaticBody2D" parent="Walls"]
 position = Vector2( 480, -1920 )
@@ -1774,7 +1772,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall168"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall145" type="StaticBody2D" parent="Walls"]
 position = Vector2( 608, -1728 )
@@ -1788,7 +1786,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall145"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall146" type="StaticBody2D" parent="Walls"]
 position = Vector2( 608, -1600 )
@@ -1802,7 +1800,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall146"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall147" type="StaticBody2D" parent="Walls"]
 position = Vector2( 672, -1600 )
@@ -1816,7 +1814,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall147"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall148" type="StaticBody2D" parent="Walls"]
 position = Vector2( 736, -1600 )
@@ -1830,7 +1828,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall148"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall149" type="StaticBody2D" parent="Walls"]
 position = Vector2( 672, -1728 )
@@ -1844,7 +1842,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall149"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall150" type="StaticBody2D" parent="Walls"]
 position = Vector2( 736, -1728 )
@@ -1858,7 +1856,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall150"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall151" type="StaticBody2D" parent="Walls"]
 position = Vector2( 800, -1728 )
@@ -1872,7 +1870,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall151"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall152" type="StaticBody2D" parent="Walls"]
 position = Vector2( 800, -1600 )
@@ -1886,7 +1884,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall152"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall153" type="StaticBody2D" parent="Walls"]
 position = Vector2( 864, -1600 )
@@ -1900,7 +1898,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall153"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall154" type="StaticBody2D" parent="Walls"]
 position = Vector2( 800, -1792 )
@@ -1914,7 +1912,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall154"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall155" type="StaticBody2D" parent="Walls"]
 position = Vector2( 800, -1856 )
@@ -1928,7 +1926,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall155"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall156" type="StaticBody2D" parent="Walls"]
 position = Vector2( 864, -1856 )
@@ -1942,7 +1940,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall156"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall157" type="StaticBody2D" parent="Walls"]
 position = Vector2( 928, -1856 )
@@ -1956,7 +1954,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall157"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall158" type="StaticBody2D" parent="Walls"]
 position = Vector2( 992, -1856 )
@@ -1970,7 +1968,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall158"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall159" type="StaticBody2D" parent="Walls"]
 position = Vector2( 1056, -1856 )
@@ -1984,7 +1982,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall159"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall160" type="StaticBody2D" parent="Walls"]
 position = Vector2( 1120, -1856 )
@@ -1998,7 +1996,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall160"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall161" type="StaticBody2D" parent="Walls"]
 position = Vector2( 1120, -1792 )
@@ -2012,7 +2010,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall161"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall162" type="StaticBody2D" parent="Walls"]
 position = Vector2( 1120, -1728 )
@@ -2026,7 +2024,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall162"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall163" type="StaticBody2D" parent="Walls"]
 position = Vector2( 1120, -1664 )
@@ -2040,7 +2038,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall163"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall164" type="StaticBody2D" parent="Walls"]
 position = Vector2( 1120, -1600 )
@@ -2054,7 +2052,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall164"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall165" type="StaticBody2D" parent="Walls"]
 position = Vector2( 1056, -1600 )
@@ -2068,7 +2066,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall165"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall166" type="StaticBody2D" parent="Walls"]
 position = Vector2( 992, -1600 )
@@ -2082,7 +2080,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall166"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall167" type="StaticBody2D" parent="Walls"]
 position = Vector2( 928, -1600 )
@@ -2096,7 +2094,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall167"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall125" type="StaticBody2D" parent="Walls"]
 position = Vector2( 224, -1920 )
@@ -2110,7 +2108,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall125"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall126" type="StaticBody2D" parent="Walls"]
 position = Vector2( 160, -1920 )
@@ -2124,7 +2122,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall126"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall127" type="StaticBody2D" parent="Walls"]
 position = Vector2( 96, -1920 )
@@ -2138,7 +2136,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall127"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall129" type="StaticBody2D" parent="Walls"]
 position = Vector2( 32, -1920 )
@@ -2152,7 +2150,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall129"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall130" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, -1920 )
@@ -2166,7 +2164,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall130"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall131" type="StaticBody2D" parent="Walls"]
 position = Vector2( -96, -1920 )
@@ -2180,7 +2178,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall131"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall132" type="StaticBody2D" parent="Walls"]
 position = Vector2( -160, -1920 )
@@ -2194,7 +2192,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall132"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall133" type="StaticBody2D" parent="Walls"]
 position = Vector2( -224, -1920 )
@@ -2208,7 +2206,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall133"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall135" type="StaticBody2D" parent="Walls"]
 position = Vector2( -224, -1856 )
@@ -2222,7 +2220,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall135"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall136" type="StaticBody2D" parent="Walls"]
 position = Vector2( -224, -1792 )
@@ -2236,7 +2234,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall136"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall37" type="StaticBody2D" parent="Walls"]
 position = Vector2( -96, -384 )
@@ -2250,7 +2248,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall37"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall38" type="StaticBody2D" parent="Walls"]
 position = Vector2( -96, -448 )
@@ -2264,7 +2262,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall38"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall39" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, -448 )
@@ -2278,7 +2276,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall39"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall40" type="StaticBody2D" parent="Walls"]
 position = Vector2( 32, -512 )
@@ -2292,7 +2290,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall40"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall41" type="StaticBody2D" parent="Walls"]
 position = Vector2( 96, -512 )
@@ -2306,7 +2304,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall41"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall42" type="StaticBody2D" parent="Walls"]
 position = Vector2( 160, -512 )
@@ -2320,7 +2318,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall42"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall43" type="StaticBody2D" parent="Walls"]
 position = Vector2( 224, -512 )
@@ -2334,7 +2332,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall43"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall44" type="StaticBody2D" parent="Walls"]
 position = Vector2( 288, -512 )
@@ -2348,7 +2346,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall44"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall45" type="StaticBody2D" parent="Walls"]
 position = Vector2( 352, -512 )
@@ -2362,7 +2360,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall45"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall46" type="StaticBody2D" parent="Walls"]
 position = Vector2( 416, -512 )
@@ -2376,7 +2374,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall46"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall57" type="StaticBody2D" parent="Walls"]
 position = Vector2( 288, -640 )
@@ -2390,7 +2388,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall57"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall47" type="StaticBody2D" parent="Walls"]
 position = Vector2( -32, -512 )
@@ -2404,7 +2402,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall47"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Lava" type="Node" parent="."]
 
@@ -2433,7 +2431,7 @@ modulate = Color( 0, 1, 0.0627451, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Lava2" parent="." instance=ExtResource( 6 )]
 position = Vector2( -32, -128 )
