@@ -42,10 +42,10 @@ __meta__ = {
 [node name="RespawnPower" type="Label" parent="Control"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = -288.0
-margin_top = -97.0
-margin_right = -78.0
-margin_bottom = -64.0
+margin_left = -294.0
+margin_top = -65.0
+margin_right = -84.0
+margin_bottom = -32.0
 custom_fonts/font = SubResource( 2 )
 text = "Respawn Power: X"
 __meta__ = {
@@ -1825,11 +1825,13 @@ position = Vector2( 2208, 448 )
 [node name="RespawnPowerInstruction" type="Sprite" parent="Text"]
 position = Vector2( 383, 255 )
 scale = Vector2( 0.5, 0.5 )
+z_index = -1
 texture = ExtResource( 1 )
 
 [node name="ResourcefulnessInstruction" type="Sprite" parent="Text"]
 position = Vector2( 960, 256 )
 scale = Vector2( 0.5, 0.5 )
+z_index = -1
 texture = ExtResource( 2 )
 
 [node name="End" type="StaticBody2D" parent="." groups=[
