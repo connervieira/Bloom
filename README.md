@@ -31,7 +31,6 @@ The storyline of Bloom is simple enough to not overwhelm the game itself, while 
 Bloom doesn't require high end hardware to run well. Even inexpensive computers should be able to run the game at a full 60 frames per second without issue.
 
 ## Screenshots
-There are currently no screenshots available
 ![Screenshot 1](https://v0lttech.com/files/images/bloom/1.png)
 ![Screenshot 2](https://v0lttech.com/files/images/bloom/2.png)
 ![Screenshot 3](https://v0lttech.com/files/images/bloom/3.png)
