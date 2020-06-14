@@ -38,12 +38,12 @@ There are currently no screenshots available
 
 ## Credits
 ### Conner Vieira
-Job: Game Design, Software Development<br/>
+Job: Game Design, Software Development, Game Art<br/>
 Social Media: Mastodon (@cvieira)
 
 ### Kyrah Porter
 Job: Story Writing, Character Development<br/>
 Social Media: Instagram (@garbage._.cant)
 
-### Declan Evans
-Job: Art Style, Animations
+### Kayla Sheehan
+Job: Introduction Art
