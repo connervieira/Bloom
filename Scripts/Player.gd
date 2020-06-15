@@ -121,7 +121,7 @@ func _process(delta):
 		if position.y >= 1000:
 			die()
 	if Input.is_action_pressed("ui_end"):
-		get_tree().change_scene("res://Scenes/MainMenu.tscn") # If the player dies, and there isn't any respawn power left, return to the main menu
+		get_tree().change_scene("res://Scenes/MainMenu.tscn") # Return to the main menu
 		
 	if currentWorld != "World1" and currentWorld != "Control":
 		if get_tree().root.get_node(currentWorld):

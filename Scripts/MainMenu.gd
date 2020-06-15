@@ -62,7 +62,7 @@ func _ready():
 
 
 func _on_Intro_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://Scenes/Introduction.tscn")
 
 
 func _on_Level1_pressed():
