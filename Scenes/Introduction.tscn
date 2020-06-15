@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="VideoStreamGDNative" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+stream = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
