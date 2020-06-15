@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Defaults/DefaultFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Eyes.gd" type="Script" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://DirectionalBlur.shader" type="Shader" id=7]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Prefabs/ParallaxBackground.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Textures/BloomDirtTexture.png" type="Texture" id=10]
+[ext_resource path="res://Textures/Flowers/YellowFlower.PNG" type="Texture" id=11]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 7 )
@@ -1973,9 +1975,14 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="End"]
-modulate = Color( 0, 1, 0.0627451, 1 )
-texture = ExtResource( 6 )
+[node name="Dirt" type="Sprite" parent="End"]
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 10 )
+
+[node name="Flower" type="Sprite" parent="End"]
+position = Vector2( 0, -128 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
 shape = SubResource( 3 )

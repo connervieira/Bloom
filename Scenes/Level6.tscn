@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Textures/OliverEyes.png" type="Texture" id=1]
 [ext_resource path="res://Defaults/DefaultFont.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Defaults/default.png" type="Texture" id=7]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Prefabs/ParallaxBackground.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Textures/BloomDirtTexture.png" type="Texture" id=10]
+[ext_resource path="res://Textures/Flowers/PurpleFlower.PNG" type="Texture" id=11]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
@@ -373,20 +375,6 @@ texture = ExtResource( 7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall28"]
 shape = SubResource( 3 )
 
-[node name="Wall29" type="StaticBody2D" parent="Walls"]
-position = Vector2( 416, 256 )
-scale = Vector2( 0.5, 0.5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Walls/Wall29"]
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 7 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall29"]
-shape = SubResource( 3 )
-
 [node name="Wall30" type="StaticBody2D" parent="Walls"]
 position = Vector2( 288, 256 )
 scale = Vector2( 0.5, 0.5 )
@@ -430,7 +418,7 @@ texture = ExtResource( 7 )
 shape = SubResource( 3 )
 
 [node name="Wall33" type="StaticBody2D" parent="Walls"]
-position = Vector2( 288, 384 )
+position = Vector2( 224, 384 )
 scale = Vector2( 0.5, 0.5 )
 __meta__ = {
 "_edit_group_": true
@@ -444,7 +432,7 @@ texture = ExtResource( 7 )
 shape = SubResource( 3 )
 
 [node name="Wall35" type="StaticBody2D" parent="Walls"]
-position = Vector2( 352, 384 )
+position = Vector2( 352, 320 )
 scale = Vector2( 0.5, 0.5 )
 __meta__ = {
 "_edit_group_": true
@@ -553,6 +541,20 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall40"]
+shape = SubResource( 3 )
+
+[node name="Wall216" type="StaticBody2D" parent="Walls"]
+position = Vector2( 480, 256 )
+scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Walls/Wall216"]
+modulate = Color( 0, 0, 0, 1 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall216"]
 shape = SubResource( 3 )
 
 [node name="Wall41" type="StaticBody2D" parent="Walls"]
@@ -2999,9 +3001,6 @@ position = Vector2( -32, 256 )
 [node name="Lava3" parent="Lava" instance=ExtResource( 6 )]
 position = Vector2( 224, 64 )
 
-[node name="Lava4" parent="Lava" instance=ExtResource( 6 )]
-position = Vector2( 480, 256 )
-
 [node name="Lava5" parent="Lava" instance=ExtResource( 6 )]
 position = Vector2( 480, 192 )
 
@@ -3227,6 +3226,36 @@ position = Vector2( 736, 256 )
 [node name="Lava18" parent="Lava" instance=ExtResource( 6 )]
 position = Vector2( 736, 320 )
 
+[node name="Lava80" parent="Lava" instance=ExtResource( 6 )]
+position = Vector2( 2656, 512 )
+
+[node name="Lava81" parent="Lava" instance=ExtResource( 6 )]
+position = Vector2( 2784, 640 )
+
+[node name="Lava82" parent="Lava" instance=ExtResource( 6 )]
+position = Vector2( 2400, 768 )
+
+[node name="Lava83" parent="Lava" instance=ExtResource( 6 )]
+position = Vector2( 3040, 896 )
+
+[node name="Lava84" parent="Lava" instance=ExtResource( 6 )]
+position = Vector2( 2784, 384 )
+
+[node name="Lava85" parent="Lava" instance=ExtResource( 6 )]
+position = Vector2( 2656, 256 )
+
+[node name="Lava86" parent="Lava" instance=ExtResource( 6 )]
+position = Vector2( 2656, 64 )
+
+[node name="Lava87" parent="Lava" instance=ExtResource( 6 )]
+position = Vector2( 2912, 0 )
+
+[node name="Lava88" parent="Lava" instance=ExtResource( 6 )]
+position = Vector2( 3040, 128 )
+
+[node name="Lava89" parent="Lava" instance=ExtResource( 6 )]
+position = Vector2( 2400, 256 )
+
 [node name="Text" type="Node" parent="."]
 
 [node name="End" type="StaticBody2D" parent="." groups=[
@@ -3238,39 +3267,14 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="End"]
-modulate = Color( 0, 1, 0.0627451, 1 )
-texture = ExtResource( 7 )
+[node name="Dirt" type="Sprite" parent="End"]
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 10 )
+
+[node name="Flower" type="Sprite" parent="End"]
+position = Vector2( 0, -128 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
 shape = SubResource( 3 )
-
-[node name="Lava2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2656, 512 )
-
-[node name="Lava4" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2784, 640 )
-
-[node name="Lava7" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2400, 768 )
-
-[node name="Lava9" parent="." instance=ExtResource( 6 )]
-position = Vector2( 3040, 896 )
-
-[node name="Lava3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2784, 384 )
-
-[node name="Lava5" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2656, 256 )
-
-[node name="Lava10" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2656, 64 )
-
-[node name="Lava11" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2912, 0 )
-
-[node name="Lava12" parent="." instance=ExtResource( 6 )]
-position = Vector2( 3040, 128 )
-
-[node name="Lava6" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2400, 256 )
