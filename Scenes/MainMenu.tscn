@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Defaults/DefaultFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://Textures/BloomLogo.png" type="Texture" id=3]
+[ext_resource path="res://Background/City_Skyline.jpeg" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -64,10 +65,28 @@ __meta__ = {
 
 [node name="MenuIndicator" type="Node" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BackgroundColor" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.270588, 0.270588, 0.270588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundImageFade" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.294118, 0.294118, 0.294118, 0.301961 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -141,6 +160,7 @@ margin_bottom = 166.0
 custom_styles/hover = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Level 1"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -153,6 +173,7 @@ margin_bottom = 299.0
 custom_styles/hover = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
 custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Level 2"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -165,6 +186,7 @@ margin_bottom = 432.0
 custom_styles/hover = SubResource( 9 )
 custom_styles/normal = SubResource( 10 )
 custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Level 3"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -177,6 +199,7 @@ margin_bottom = 565.0
 custom_styles/hover = SubResource( 11 )
 custom_styles/normal = SubResource( 12 )
 custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Level 4"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -189,6 +212,7 @@ margin_bottom = 698.0
 custom_styles/hover = SubResource( 13 )
 custom_styles/normal = SubResource( 14 )
 custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Level 5"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -201,6 +225,7 @@ margin_bottom = 831.0
 custom_styles/hover = SubResource( 15 )
 custom_styles/normal = SubResource( 16 )
 custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Level 6"
 __meta__ = {
 "_edit_use_anchors_": false
