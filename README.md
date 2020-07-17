@@ -38,11 +38,8 @@ Bloom doesn't require high end hardware to run well. Even inexpensive computers 
 ## Credits
 ### Conner Vieira
 Job: Game Design, Software Development, Game Art<br/>
-Social Media: Mastodon (@cvieira)
+Social Media: Mastodon (@cvieira@mstdn.social)
 
 ### Kyrah Porter
 Job: Story Writing, Character Development<br/>
 Social Media: Instagram (@garbage._.cant)
-
-### Kayla Sheehan
-Job: Introduction Art
