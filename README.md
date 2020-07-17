@@ -3,7 +3,7 @@ An open source platformer with creative mechanics!
 ![Bloom Logo](https://v0lttech.com/assets/img/bloomlogo.png)
 
 ## Binaries
-There are currently no builds available. When finished, binaries will be available at https://v0lttech.com/bloom.php
+Builds are available at https://v0lttech.com/bloom.php
 
 ## Features
 ### Lovable Character
